@@ -14,11 +14,10 @@ namespace WebUtils.HttpLogging
         private readonly RequestDelegate _next;
         private readonly ILogger _logger;
 
-        public HttpLoggingMiddleware(RequestDelegate next,
-                                         ILoggerFactory loggerFactory)
+        public HttpLoggingMiddleware(RequestDelegate next, ILogger<HttpLoggingMiddleware> logger)
         {
             _next = next;
-            _logger = loggerFactory.CreateLogger<HttpLoggingMiddleware>();
+            _logger = logger;
 
 
         }
