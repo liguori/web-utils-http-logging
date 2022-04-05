@@ -11,6 +11,8 @@ namespace WebUtils.HttpLogging.Models
 
         public string Scheme { get; set; }
 
+        public string Host { get; set; }
+
         public string Path { get; set; }
 
         public string PathBase { get; set; }
@@ -18,7 +20,7 @@ namespace WebUtils.HttpLogging.Models
         public string QueryString { get; set; }
 
         //HTTP Request Headers
-        public Dictionary<string,StringValues> Headers { get; set; }
+        public Dictionary<string,string> Headers { get; set; }
 
         //HTTP Request Body
         public string Body { get; set; }
