@@ -4,6 +4,8 @@ namespace WebUtils.HttpLogging.Models
 {
     public class HttpRequestLog
     {
+        public string TraceIdentifier { get; set; }
+
         //HTTP Request Properties
         public string Protocol { get; set; }
 

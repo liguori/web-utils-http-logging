@@ -51,6 +51,7 @@ namespace WebUtils.HttpLogging
             var body = ReadStreamInChunks(requestStream);
 
             var httpRequestLog = new HttpRequestLog();
+            httpRequestLog.TraceIdentifier = context.TraceIdentifier;
             httpRequestLog.Protocol = context.Request.Protocol;
             httpRequestLog.Method = context.Request.Method;
             httpRequestLog.Scheme = context.Request.Scheme;
@@ -92,6 +93,7 @@ namespace WebUtils.HttpLogging
             context.Response.Body.Seek(0, SeekOrigin.Begin);
 
             var httpResponseLog = new HttpResponseLog();
+            httpResponseLog.TraceIdentifier = context.TraceIdentifier;
             httpResponseLog.StatusCode = context.Response.StatusCode;
             httpResponseLog.Headers = context.Response.Headers.ToDictionary(x => x.Key, x => x.Value.ToString());
             httpResponseLog.Body = text;

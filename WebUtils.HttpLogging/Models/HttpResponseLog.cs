@@ -4,6 +4,8 @@ namespace WebUtils.HttpLogging.Models
 {
     internal class HttpResponseLog
     {
+        public string TraceIdentifier { get; set; }
+
         //HTTP Response Properties
         public int StatusCode { get; set; }
 
