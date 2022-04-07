@@ -3,13 +3,13 @@ using Serilog.Events;
 using Serilog.Formatting.Compact;
 using WebUtils.HttpLogging;
 
-var builder = WebApplication.CreateBuilder(args);
-
 static bool SourceContextEquals(LogEvent logEvent, string category)
            => logEvent.Properties.GetValueOrDefault("SourceContext") is ScalarValue sv &&
               sv.Value?.ToString() == category;
 static bool sourceContextLogging(LogEvent le) => SourceContextEquals(le, "WebUtils.HttpLogging.HttpLoggingMiddleware");
 
+
+var builder = WebApplication.CreateBuilder(args);
 
 Log.Logger = new LoggerConfiguration()
            .MinimumLevel.Debug()
