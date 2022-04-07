@@ -15,7 +15,8 @@ Log.Logger = new LoggerConfiguration()
            .MinimumLevel.Debug()
            .WriteTo.Logger(lc =>
                 lc.Filter.ByIncludingOnly(le => sourceContextLogging(le))
-              .WriteTo.File($"httpLog.json", buffered: false)
+                   //.WriteTo.File($"httpLog.json", buffered: false,)
+                   .WriteTo.File($"httpLog.json", buffered: false, outputTemplate: "{Message:lj}{NewLine}")
            // .WriteTo.File(new CompactJsonFormatter(), $"httpLog.json", buffered: false)
             )
            .WriteTo.Logger(lc =>
